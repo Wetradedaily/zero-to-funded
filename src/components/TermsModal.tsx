@@ -107,7 +107,7 @@ export default function TermsModal({ open, onClose, onAgree }: TermsModalProps) 
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 px-4"
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 p-4 sm:px-4"
           onClick={onClose}
         >
           <motion.div
@@ -120,7 +120,7 @@ export default function TermsModal({ open, onClose, onAgree }: TermsModalProps) 
             onClick={(e) => e.stopPropagation()}
           >
             {/* HEADER - sticky */}
-            <div className="shrink-0 px-6 py-4 flex items-center justify-between border-b border-primary/20" style={{ background: "#0A0A0A" }}>
+            <div className="shrink-0 px-4 sm:px-6 py-4 flex items-center justify-between border-b border-primary/20" style={{ background: "#0A0A0A" }}>
               <div className="flex items-center gap-2">
                 <TrendingUp className="text-primary" size={20} />
                 <span className="text-lg font-bold text-white">
@@ -133,7 +133,7 @@ export default function TermsModal({ open, onClose, onAgree }: TermsModalProps) 
               </div>
               <button
                 onClick={onClose}
-                className="text-[#888888] hover:text-primary transition-colors p-1"
+                className="text-[#888888] hover:text-primary transition-colors p-3 min-h-[44px] min-w-[44px] flex items-center justify-center -mr-2 rounded-lg active:bg-white/10"
                 aria-label="Close"
               >
                 <X size={20} />
@@ -152,7 +152,7 @@ export default function TermsModal({ open, onClose, onAgree }: TermsModalProps) 
             <div
               ref={contentRef}
               onScroll={handleScroll}
-              className="flex-1 overflow-y-auto px-6 py-6 space-y-6"
+              className="flex-1 overflow-y-auto overflow-x-hidden px-4 sm:px-6 py-6 space-y-6"
               style={{
                 backgroundImage:
                   "linear-gradient(rgba(245,166,35,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(245,166,35,0.03) 1px, transparent 1px)",
@@ -185,18 +185,18 @@ export default function TermsModal({ open, onClose, onAgree }: TermsModalProps) 
             </div>
 
             {/* FOOTER - sticky */}
-            <div className="shrink-0 px-6 py-4 border-t border-primary/20 space-y-3" style={{ background: "#0A0A0A" }}>
+            <div className="shrink-0 px-4 sm:px-6 py-4 border-t border-primary/20 space-y-3 pb-[env(safe-area-inset-bottom,0)]" style={{ background: "#0A0A0A" }}>
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 {/* Checkbox */}
-                <label className="flex items-center gap-3 cursor-pointer select-none group">
-                  <div className="relative">
+                <label className="flex items-center gap-3 cursor-pointer select-none group min-h-[44px] py-1">
+                  <div className="relative shrink-0">
                     <input
                       type="checkbox"
                       checked={checked}
                       onChange={(e) => setChecked(e.target.checked)}
                       className="sr-only peer"
                     />
-                    <div className="w-5 h-5 rounded border-2 border-white/20 peer-checked:border-primary peer-checked:bg-primary transition-all duration-200 flex items-center justify-center">
+                    <div className="w-6 h-6 rounded border-2 border-white/20 peer-checked:border-primary peer-checked:bg-primary transition-all duration-200 flex items-center justify-center">
                       {checked && (
                         <motion.svg
                           initial={{ scale: 0 }}
@@ -223,7 +223,7 @@ export default function TermsModal({ open, onClose, onAgree }: TermsModalProps) 
                     variant="outline"
                     size="sm"
                     onClick={onClose}
-                    className="rounded-lg border-white/10 text-[#888888] hover:text-white hover:bg-white/5 flex-1 sm:flex-initial"
+                    className="rounded-lg border-white/10 text-[#888888] hover:text-white hover:bg-white/5 flex-1 sm:flex-initial min-h-[44px]"
                   >
                     Decline
                   </Button>
@@ -231,7 +231,7 @@ export default function TermsModal({ open, onClose, onAgree }: TermsModalProps) 
                     size="sm"
                     disabled={!canAgree}
                     onClick={onAgree}
-                    className={`rounded-lg font-bold flex-1 sm:flex-initial transition-all duration-300 ${
+                    className={`rounded-lg font-bold flex-1 sm:flex-initial min-h-[44px] transition-all duration-300 ${
                       canAgree
                         ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(245,166,35,0.3)] animate-pulse"
                         : "bg-white/10 text-white/30 cursor-not-allowed"
