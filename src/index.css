@@ -1,0 +1,119 @@
+/* Google Fonts loaded async via index.html preload */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 100% / 0.05;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 37 91% 55%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 142 71% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 37 91% 55%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 100% / 0.1;
+    --input: 0 0% 100% / 0.1;
+    --ring: 37 91% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 37 91% 55%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 100% / 0.1;
+    --sidebar-ring: 37 91% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+}
+
+/* === ANIMATION KEYFRAMES (respect prefers-reduced-motion) === */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes grid-scroll {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(40px, 40px, 0); }
+  }
+  @keyframes orb-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+  @keyframes particle-float {
+    0% { transform: translateY(0); opacity: 0; }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.4; }
+    100% { transform: translateY(-500px); opacity: 0; }
+  }
+  @keyframes scan-line {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes card-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  .animate-grid-scroll {
+    animation: grid-scroll 8s linear infinite;
+  }
+  .animate-orb-pulse {
+    animation: orb-pulse 6s ease-in-out infinite;
+    will-change: transform;
+  }
+  .animate-particle-float {
+    animation: particle-float var(--float-duration, 7s) linear infinite;
+    animation-delay: var(--float-delay, 0s);
+    will-change: transform;
+  }
+  .animate-scan-line {
+    animation: scan-line 4s linear infinite;
+  }
+  .animate-ticker-scroll {
+    animation: ticker-scroll 20s linear infinite;
+  }
+  .animate-card-float {
+    animation: card-float 4s ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+    will-change: transform;
+  }
+}
